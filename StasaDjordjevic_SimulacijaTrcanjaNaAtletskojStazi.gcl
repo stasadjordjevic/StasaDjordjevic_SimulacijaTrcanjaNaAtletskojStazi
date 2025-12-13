@@ -23,15 +23,13 @@ ang_point F2 8.439 -4.626
 drawsegment F1 F2
 color 255 0 0
 
-call track {3.65}
-call track {3.772}
-call track {3.894}
-call track {4.016}
-call track {4.138}
-call track {4.26}
-call track {4.382}
-call track {4.504}
-call track {4.626}
+number i 0
+while {i<9}
+{
+expression p {3.65+i*0.122}
+call track {p}
+expression i {i+1}
+}
 
 procedure position {T Px Py Tr}
 {
@@ -79,7 +77,7 @@ expression Py {-r}
 
 }}}
 }
-
+linethickness -4
 color 0 0 255
 point S 0 0 1 1
 getx t S
@@ -111,12 +109,13 @@ color 124 120 0
 ang_point R7 Gx Gy
 cmark_l R7
 call position {t Gx Gy 7}
-color 255 255 0
+color 255 100 0
 ang_point R8 Gx Gy
 cmark_l R8
 ang_point P 50 50
 cmark_l P
 
 animation_frames 200 20
+
 
 
